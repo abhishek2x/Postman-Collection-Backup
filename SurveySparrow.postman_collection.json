@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "6e3539c6-ffc0-440e-aea0-108fb44e130c",
+		"name": "SurveySparrow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Create Contact",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "prUJqEHlpzWrjBGP477dWklUz2sP6YlxMb4x0tY4J1rgW59TIJei20mhE2bpSvmnt56tG9N5xRMBmwMYDSkVQ4NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "john@example.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "John Doe",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "9090909090",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "91909090909",
+									"type": "text"
+								},
+								{
+									"key": "jobTitle",
+									"value": "Developer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api.surveysparrow.com/v1/contacts",
+							"protocol": "https",
+							"host": [
+								"api",
+								"surveysparrow",
+								"com"
+							],
+							"path": [
+								"v1",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Contact",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "prUJqEHlpzWrjBGP477dWklUz2sP6YlxMb4x0tY4J1rgW59TIJei20mhE2bpSvmnt56tG9N5xRMBmwMYDSkVQ4NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.surveysparrow.com/v1/contacts",
+							"protocol": "https",
+							"host": [
+								"api",
+								"surveysparrow",
+								"com"
+							],
+							"path": [
+								"v1",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Survey",
+			"item": [
+				{
+					"name": "View All Surveys",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "prUJqEHlpzWrjBGP477dWklUz2sP6YlxMb4x0tY4J1rgW59TIJei20mhE2bpSvmnt56tG9N5xRMBmwMYDSkVQ4NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.surveysparrow.com/v1/surveys",
+							"protocol": "https",
+							"host": [
+								"api",
+								"surveysparrow",
+								"com"
+							],
+							"path": [
+								"v1",
+								"surveys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Submissions of a survey (using its id) ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "prUJqEHlpzWrjBGP477dWklUz2sP6YlxMb4x0tY4J1rgW59TIJei20mhE2bpSvmnt56tG9N5xRMBmwMYDSkVQ4NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.surveysparrow.com/v1/surveys/69442/submissions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"surveysparrow",
+								"com"
+							],
+							"path": [
+								"v1",
+								"surveys",
+								"69442",
+								"submissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Survey",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "prUJqEHlpzWrjBGP477dWklUz2sP6YlxMb4x0tY4J1rgW59TIJei20mhE2bpSvmnt56tG9N5xRMBmwMYDSkVQ4NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"TEST Survey\",\n   \"surveyType\": \"ClassicForm\",\n   \"workspace_id\":1069,\n   \"welcomeText\":\"Welcome to the survey Param_department\",\n   \"theme_id\": 18119,\n   \"welcomeDescriptionEnabled\": true,\n   \"welcomeScreenYesButtonText\": \"start the survey\",\n   \"welcomeDescription\": \"this is description\",\n   \"thankyou_json\":[\n {\n   \"message\": \"Thank you for your time\", \n   \"branding\": false,\n   \"description\": \"Thank you page description\" \n },{\n   \"redirectBoolean\": true,\n   \"redirect\":\"https://surveysparrow.com\"\n }\n]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.surveysparrow.com/v1/surveys",
+							"protocol": "https",
+							"host": [
+								"api",
+								"surveysparrow",
+								"com"
+							],
+							"path": [
+								"v1",
+								"surveys"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Share",
+			"item": [
+				{
+					"name": "View Shares",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "prUJqEHlpzWrjBGP477dWklUz2sP6YlxMb4x0tY4J1rgW59TIJei20mhE2bpSvmnt56tG9N5xRMBmwMYDSkVQ4NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.surveysparrow.com/v1/surveys/69442/shares",
+							"protocol": "http",
+							"host": [
+								"api",
+								"surveysparrow",
+								"com"
+							],
+							"path": [
+								"v1",
+								"surveys",
+								"69442",
+								"shares"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Email Share",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "prUJqEHlpzWrjBGP477dWklUz2sP6YlxMb4x0tY4J1rgW59TIJei20mhE2bpSvmnt56tG9N5xRMBmwMYDSkVQ4NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"contacts\": [\"abhisheksrivastavabbn@gmail.com\"]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.surveysparrow.com/v1/shares/email/2233677",
+							"protocol": "https",
+							"host": [
+								"api",
+								"surveysparrow",
+								"com"
+							],
+							"path": [
+								"v1",
+								"shares",
+								"email",
+								"2233677"
+							]
+						},
+						"description": "For this, first we need to manually create a email share id, then use the same\n"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "prUJqEHlpzWrjBGP477dWklUz2sP6YlxMb4x0tY4J1rgW59TIJei20mhE2bpSvmnt56tG9N5xRMBmwMYDSkVQ4NQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "024637a5-e01b-4b0e-9ccb-9b635ae31bb0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "45946fbf-2aac-4540-9f36-fbe2fa002038",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "bb8c128f-bf3e-418a-aab9-0319185e8a45",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
